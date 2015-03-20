@@ -17,8 +17,8 @@ describe('pdf', function () {
     });
 
     it('should return false for a non-PDF', function () {
-      var pdfPath = path.resolve(__dirname, '../data/png/123x456.png');
-      var result = pdf.detect(fs.readFileSync(pdfPath));
+      var pngPath = path.resolve(__dirname, '../data/png/123x456.png');
+      var result = pdf.detect(fs.readFileSync(pngPath));
       expect(result).to.eql(false);
     });
   });

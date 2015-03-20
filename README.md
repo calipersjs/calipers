@@ -4,10 +4,12 @@ A Node.js library for measuring width and height of PDFs and images.
 # TODO
 
 - [ ] Add documentation and usage examples
-- [ ] Optimize PDF so that entire files aren't read into memory
+- [X] Optimize PDF so that entire files aren't read into memory
 - [ ] Add PNG support
 - [ ] Add JPEG support
 - [ ] Generate benchmarks
+- [ ] Don't grab xref sections in full strings and split to parse
+- [ ] Don't grab entire objects and use regex to parse
 
 #### Inspiration
 

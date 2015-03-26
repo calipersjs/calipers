@@ -24,20 +24,24 @@ describe('png', function () {
   });
 
   describe('measure', function () {
-    it('should return the correct dimensions for 123x456.png', function () {
-      var pngPath = path.resolve(__dirname, '../data/png/123x456.png');
-      return calipers.measure(pngPath)
-      .bind({})
-      .then(function (result) {
-        this.result = result;
-      })
-      .catch(function (err) {
-        console.log(err);
-      })
-      .finally(function () {
-        expect(this.result).to.eql({ width: 123, height: 456, type: 'png' });
+
+    var pngPath = path.resolve(__dirname, '../data/png');
+    var files = fs.readdirSync(pngPath);
+
+    files.forEach(function (file) {
+      var fileSplit = file.split(/x|\./);
+      var width = parseInt(fileSplit[0]);
+      var height = parseInt(fileSplit[1]);
+
+      it('should return the correct dimensions for ' + file, function () {
+        return calipers.measure(path.resolve(pngPath, file))
+        .bind({})
+        .then(function (result) {
+          expect(result).to.eql({ width: width, height: height, type: 'png' });
+        });
       });
     });
+
   });
 
 });

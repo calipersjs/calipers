@@ -25,11 +25,12 @@
   },
   "homepage": "https://github.com/mgartner/calipers",
   "devDependencies": {
-    "chai": "^2.1.0",
-    "mocha": "^2.1.0",
-    "sinon": "^1.13.0"
+    "chai": "^2.2.0",
+    "chai-as-promised": "^4.3.0",
+    "mocha": "^2.1.0"
   },
   "dependencies": {
-    "bluebird": "^2.9.13"
+    "bluebird": "^2.9.13",
+    "poppler-simple": "^0.1.8"
   }
 }

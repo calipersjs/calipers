@@ -11,13 +11,13 @@ describe('pdf', function () {
 
   describe('detect', function () {
     it('should return true for a PDF', function () {
-      var pdfPath = path.resolve(__dirname, '../data/pdf/123x456.pdf');
+      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.pdf');
       var result = pdf.detect(fs.readFileSync(pdfPath));
       expect(result).to.eql(true);
     });
 
     it('should return false for a non-PDF', function () {
-      var pngPath = path.resolve(__dirname, '../data/png/123x456.png');
+      var pngPath = path.resolve(__dirname, '../fixtures/png/123x456.png');
       var result = pdf.detect(fs.readFileSync(pngPath));
       expect(result).to.eql(false);
     });
@@ -25,7 +25,7 @@ describe('pdf', function () {
 
   describe('measure', function () {
 
-    var pdfPath = path.resolve(__dirname, '../data/pdf');
+    var pdfPath = path.resolve(__dirname, '../fixtures/pdf');
     var files = fs.readdirSync(pdfPath);
 
     files.forEach(function (file) {

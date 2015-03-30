@@ -1,24 +1,31 @@
 'use strict';
 
-var expect = require('chai').expect;
-var sinon  = require('sinon');
-var detect = require('../lib/detect');
-var pdf    = require('../lib/types/pdf');
+var fs       = require('fs');
+var path     = require('path');
+var expect   = require('chai').expect;
+var bluebird = require('bluebird');
+var popen    = bluebird.promisify(fs.open);
+
+var detect   = require('../lib/detect');
+var pdf      = require('../lib/types/pdf');
 
 describe('detect', function () {
 
   it('should return the first handler for which detect returns true', function () {
-    var pdfMock = sinon.mock(pdf);
-    pdfMock.expects('detect').returns(true);
-    expect(detect(new Buffer('test'))).to.eql(pdf);
-    pdfMock.restore();
+    var pdfPath = path.resolve(__dirname + '/fixtures/pdf/123x456.pdf');
+    return popen(pdfPath, 'r')
+    .then(detect)
+    .then(function (handler) {
+      expect(handler).to.eql(pdf);
+    });
   });
 
   it('should throw an error for an unsupported file type', function () {
-    var pdfMock = sinon.mock(pdf);
-    pdfMock.expects('detect').returns(false);
-    expect(function () { detect(new Buffer('test')) }).to.throw(TypeError);
-    pdfMock.restore();
+    var txtPath = path.resolve(__dirname + '/fixtures/txt/file.txt');
+    return popen(txtPath, 'r')
+    .then(function (fd) {
+      expect(detect(fd)).to.be.rejectedWith(TypeError);
+    });
   });
 
 });

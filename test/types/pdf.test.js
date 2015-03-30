@@ -11,30 +11,37 @@ describe('pdf', function () {
 
   describe('detect', function () {
     it('should return true for a PDF', function () {
-      var pdfPath = path.resolve(__dirname, '../data/pdf/123x456.pdf');
+      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.pdf');
       var result = pdf.detect(fs.readFileSync(pdfPath));
       expect(result).to.eql(true);
     });
 
     it('should return false for a non-PDF', function () {
-      var pngPath = path.resolve(__dirname, '../data/png/123x456.png');
+      var pngPath = path.resolve(__dirname, '../fixtures/png/123x456.png');
       var result = pdf.detect(fs.readFileSync(pngPath));
       expect(result).to.eql(false);
     });
   });
 
   describe('measure', function () {
-    it('should return the correct dimensions for 123x456.pdf', function () {
-      var pdfPath = path.resolve(__dirname, '../data/pdf/123x456.pdf');
-      return calipers.measure(pdfPath)
-      .bind({})
-      .then(function (result) {
-        this.result = result;
-      })
-      .finally(function () {
-        expect(this.result).to.eql({ width: 123, height: 456, type: 'pdf' });
+
+    var pdfPath = path.resolve(__dirname, '../fixtures/pdf');
+    var files = fs.readdirSync(pdfPath);
+
+    files.forEach(function (file) {
+      var fileSplit = file.split(/x|\./);
+      var width = parseInt(fileSplit[0]);
+      var height = parseInt(fileSplit[1]);
+
+      it('should return the correct dimensions for ' + file, function () {
+        return calipers.measure(path.resolve(pdfPath, file))
+        .bind({})
+        .then(function (result) {
+          expect(result).to.eql({ width: width, height: height, type: 'pdf' });
+        });
       });
     });
+
   });
 
 });

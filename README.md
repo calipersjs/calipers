@@ -35,17 +35,23 @@ calipers.measure('/path/to/file.pdf')
 
 # Installation
 
-`npm install calipers`
+```
+npm install calipers
+```
 
 You'll also need to install [Poppler](http://poppler.freedesktop.org/) for PDF support.
 
 On Mac OS X using Homebrew:
 
-`brew install poppler`
+```
+brew install poppler
+```
 
 On Ubuntu:
 
-`apt-get install libpoppler-cpp-dev`
+```
+apt-get install libpoppler-cpp-dev
+```
 
 # Contribute
 
@@ -53,7 +59,7 @@ Yes, please.
 
 # TODO
 
-- [ ] Hook up to Travis CI and add badge
+- [X] Hook up to Travis CI and add badge
 - [X] Add PNG support
 - [ ] Add JPEG support
 - [X] Reconfigure tests
@@ -61,6 +67,7 @@ Yes, please.
 - [ ] Add a bunch of PNGs to test
 - [ ] Add a bunch of JPEGs to test
 - [ ] How to best handle PDFs with decimal dimensions?
+- [ ] Support for multiple pages
 - [ ] Create benchmarks
 
 #### Inspiration

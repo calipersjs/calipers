@@ -55,10 +55,11 @@ Yes, please.
 - [ ] Hook up to Travis CI and add badge
 - [X] Add PNG support
 - [ ] Add JPEG support
-- [ ] Reconfigure tests
+- [X] Reconfigure tests
 - [X] Add a bunch of PDFs to test
 - [ ] Add a bunch of PNGs to test
 - [ ] Add a bunch of JPEGs to test
+- [ ] How to best handle PDFs with decimal dimensions?
 - [ ] Create benchmarks
 
 #### Inspiration

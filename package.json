@@ -1,7 +1,7 @@
 {
   "name": "calipers",
   "version": "0.0.1",
-  "description": "A library for measure width and height of PDFs and images.",
+  "description": "A library for measuring the width and height of PDFs and images.",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
@@ -11,19 +11,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mgartner/calipers.git"
+    "url": "https://github.com/lob/calipers.git"
   },
   "keywords": [
     "image",
     "size",
-    "pdf"
+    "pdf",
+    "png",
+    "jpeg"
   ],
   "author": "Marcus Gartner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mgartner/calipers/issues"
+    "url": "https://github.com/lob/calipers/issues"
   },
-  "homepage": "https://github.com/mgartner/calipers",
+  "homepage": "https://github.com/lob/calipers",
   "devDependencies": {
     "chai": "^2.2.0",
     "chai-as-promised": "^4.3.0",

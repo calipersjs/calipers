@@ -2,7 +2,6 @@
 
 var path     = require('path');
 var expect   = require('chai').expect;
-
 var calipers = require('../lib/index');
 
 describe('index', function () {

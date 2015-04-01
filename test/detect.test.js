@@ -1,13 +1,12 @@
 'use strict';
 
-var fs       = require('fs');
-var path     = require('path');
-var expect   = require('chai').expect;
-var bluebird = require('bluebird');
-var popen    = bluebird.promisify(fs.open);
-
-var detect   = require('../lib/detect');
-var pdf      = require('../lib/types/pdf');
+var fs      = require('fs');
+var path    = require('path');
+var expect  = require('chai').expect;
+var Promise = require('bluebird');
+var popen   = Promise.promisify(fs.open);
+var detect  = require('../lib/detect');
+var pdf     = require('../lib/types/pdf');
 
 describe('detect', function () {
 

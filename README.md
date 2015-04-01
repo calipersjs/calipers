@@ -1,10 +1,12 @@
 # calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers)
 
-A Node.js library for measuring width and height of PDFs and images.
+The fastest Node.js library for measuring image and PDF dimensions.
+
+**Status**: Basic support for PDFs, PNGs and JPEGs.
 
 Calipers was motivated by high overhead and blocking of the main event loop when using `child_process.exec`. At [Lob](https://lob.com) we must validate image and PDF sizes during request-time. The simplest solution was to shell-out to ImageMagick to identify the type and size of a file. Upon investigation, this was a major bottleneck, primarily because `exec` blocks the main loop for significant periods of time.
 
-Status: Support for PDFs, PNGs and JPEGs.
+Calipers remains performant because it avoids spawning child processes and it doesn't read entire files into memory. Instead, it intelligently reads only parts of the files that are necessary to determine the type and the dimensions of the file.
 
 # Examples
 

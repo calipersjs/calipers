@@ -25,4 +25,9 @@ describe('index', function () {
     });
   });
 
+  it('should error for an unsupported file type', function () {
+    var txtPath = path.resolve(__dirname + '/fixtures/txt/file.txt');
+    expect(calipers.measure(txtPath)).to.be.rejectedWith(TypeError);
+  });
+
 });

@@ -4,7 +4,7 @@ The fastest Node.js library for measuring image and PDF dimensions.
 
 **Status**: Basic support for PDFs, PNGs and JPEGs.
 
-Calipers was motivated by high overhead and blocking of the main event loop when using `child_process.exec`. At [Lob](https://lob.com) we must validate image and PDF sizes during request-time. The simplest solution was to shell-out to ImageMagick to identify the type and size of a file. Upon investigation, this was a major bottleneck, primarily because `exec` blocks the main loop for significant periods of time.
+Calipers was built to provide method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during request-time. The simplest method to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck, primarily because `exec` blocks the main loop for significant periods of time, not during the child process' execution, but while the child process is being spawned.
 
 Calipers remains performant because it avoids spawning child processes and it doesn't read entire files into memory. Instead, it intelligently reads only parts of the files that are necessary to determine the type and the dimensions of the file.
 
@@ -36,6 +36,10 @@ calipers.measure('/path/to/file.pdf')
 ```
 
 Note that a `TypeError` may be thrown if the file type is not supported or calipers is unable to parse a file.
+
+# Benchmarks
+
+Coming Soon...
 
 # Installation
 

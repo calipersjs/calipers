@@ -68,7 +68,6 @@ Yes, please.
 - [X] Add JPEG support
 - [X] Reconfigure tests
 - [X] Add a bunch of PDFs to test
-- [ ] Throw TypeError if file type is not supported
 - [ ] Add a bunch of PNGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] Add a bunch of JPEGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] How to best handle PDFs with decimal dimensions?

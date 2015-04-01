@@ -3,7 +3,6 @@
 var fs       = require('fs');
 var path     = require('path');
 var expect   = require('chai').expect;
-
 var calipers = require('../../lib/index');
 var pdf      = require('../../lib/types/pdf');
 

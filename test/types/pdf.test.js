@@ -10,7 +10,7 @@ describe('pdf', function () {
 
   describe('detect', function () {
     it('should return true for a PDF', function () {
-      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.pdf');
+      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.1.pdf');
       var result = pdf.detect(fs.readFileSync(pdfPath));
       expect(result).to.eql(true);
     });
@@ -31,12 +31,21 @@ describe('pdf', function () {
       var fileSplit = file.split(/x|\./);
       var width = parseInt(fileSplit[0]);
       var height = parseInt(fileSplit[1]);
+      var pages = parseInt(fileSplit[2]);
+
+      var expectedOutput = {
+        type: 'pdf',
+        pages: []
+      };
+      for (var i = 0; i < pages; i++) {
+        expectedOutput.pages[i] = { width: width, height: height };
+      }
 
       it('should return the correct dimensions for ' + file, function () {
         return calipers.measure(path.resolve(pdfPath, file))
         .bind({})
         .then(function (result) {
-          expect(result).to.eql({ width: width, height: height, type: 'pdf' });
+          expect(result).to.eql(expectedOutput);
         });
       });
     });

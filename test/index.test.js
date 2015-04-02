@@ -5,11 +5,15 @@ var expect   = require('chai').expect;
 var calipers = require('../lib/index');
 
 describe('index', function () {
-  var pdfPath = path.resolve(__dirname + '/fixtures/pdf/123x456.pdf');
+  var pdfPath = path.resolve(__dirname + '/fixtures/pdf/123x456.1.pdf');
+  var expectedOutput = {
+    type: 'pdf',
+    pages: [{ width: 123, height: 456 }]
+  };
 
   it('should return the correct dimensions for 123x456.pdf with callbacks', function (done) {
     calipers.measure(pdfPath, function (err, result) {
-      expect(result).to.eql({ type: 'pdf', width: 123, height: 456 });
+      expect(result).to.eql(expectedOutput);
       done();
     });
   });
@@ -21,7 +25,7 @@ describe('index', function () {
       this.result = result;
     })
     .finally(function () {
-      expect(this.result).to.eql({ type: 'pdf', width: 123, height: 456 });
+      expect(this.result).to.eql(expectedOutput);
     });
   });
 

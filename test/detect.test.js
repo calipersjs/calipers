@@ -11,7 +11,7 @@ var pdf     = require('../lib/types/pdf');
 describe('detect', function () {
 
   it('should return the first handler for which detect returns true', function () {
-    var pdfPath = path.resolve(__dirname + '/fixtures/pdf/123x456.pdf');
+    var pdfPath = path.resolve(__dirname + '/fixtures/pdf/123x456.1.pdf');
     return popen(pdfPath, 'r')
     .then(detect)
     .then(function (handler) {
@@ -23,7 +23,7 @@ describe('detect', function () {
     var txtPath = path.resolve(__dirname + '/fixtures/txt/file.txt');
     return popen(txtPath, 'r')
     .then(function (fd) {
-      expect(detect(fd)).to.be.rejectedWith(TypeError);
+      return expect(detect(fd)).to.be.rejectedWith(Error);
     });
   });
 

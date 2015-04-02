@@ -1,6 +1,6 @@
 # calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers)
 
-The fastest Node.js library for measuring PDF, PNG, and JPEG dimensions.
+The fastest Node.js library for measuring **PDF**, **PNG**, and **JPEG** dimensions.
 
 Calipers was built to provide method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during request-time. The simplest way to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck, primarily because `child_process.exec` blocks the main event loop for significant periods of time, not during the child process' execution, but while the child process is being spawned.
 
@@ -10,7 +10,7 @@ Calipers remains performant because it avoids spawning child processes and it do
 
 ### `measure(filePath, [callback])`
 
-Measures the file at the given path.
+Measures the PDF, PNG, or JPEG file at the given path.
 - `filePath` - The path of the file.
 - `callback` - called when the file has been measured
   - `err` - An Error is thrown for unsupported file types or corrupt files.
@@ -81,7 +81,7 @@ apt-get install libpoppler-cpp-dev
 
 # Contribute
 
-The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count: `<width>x<height>.<page count>.pdf`. Fixes for broken files are welcome, but not necessary.
+The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count: `<width>x<height>.<page count>.pdf`. Fixes for these files are welcome, but not necessary.
 
 # TODO
 

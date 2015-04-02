@@ -94,11 +94,6 @@ apt-get install libpoppler-cpp-dev
 
 The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count and round the PostScript Point to the nearest integer: `<width>x<height>.<page count>.pdf`. Fixes for these files are welcome, but not necessary.
 
-# TODO
-
-- [ ] Add a bunch of PNGs to test (just drop them in the fixtures folder and name them by dimension)
-- [ ] Add a bunch of JPEGs to test (just drop them in the fixtures folder and name them by dimension)
-
 #### Inspiration
 
 Inspired by netroy's image-size library: https://github.com/netroy/image-size

@@ -57,7 +57,18 @@ calipers.measure('/path/to/file.png')
 
 # Benchmarks
 
-Coming Soon...
+As with all benchmarks, take these with a grain of salt. You can run the benchmarks on your own hardware: `node benchmark/index.js`.
+
+These benchmarks are running 500 iterations of each method  on the 123x456 PDF, PNG, and JPEG with a concurrency setting of 50. They were run on a Mid-2014 13" MacBook Pro with a 2.6 GHz Intel Core i5.
+
+Method | FileType | Time (ms)
+------ | -------- | ----:
+exec: pdfinfo  | PDF | 1897
+exec: identify | PNG | 1801
+exec: identify | JPEG | 1820
+calipers | PDF | 104
+calipers | PNG | 41
+calipers | JPEG | 80
 
 # Installation
 
@@ -87,7 +98,6 @@ The easiest and most helpful way to contribute is to find a file that calipers i
 
 - [ ] Add a bunch of PNGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] Add a bunch of JPEGs to test (just drop them in the fixtures folder and name them by dimension)
-- [ ] Create benchmarks
 
 #### Inspiration
 

@@ -10,7 +10,7 @@ describe('jpeg', function () {
 
   describe('detect', function () {
     it('should return true for a JPEG', function () {
-      var jpegPath = path.resolve(__dirname, '../fixtures/jpeg/123x456.jpeg');
+      var jpegPath = path.resolve(__dirname, '../fixtures/jpeg/123x456.jpg');
       var result = jpeg.detect(fs.readFileSync(jpegPath));
       expect(result).to.eql(true);
     });

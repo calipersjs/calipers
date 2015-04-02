@@ -45,6 +45,10 @@ describe('pdf', function () {
         return calipers.measure(path.resolve(pdfPath, file))
         .bind({})
         .then(function (result) {
+          for (var i = 0; i < result.pages.length; i++) {
+            result.pages[i].width = Math.round(result.pages[i].width);
+            result.pages[i].height = Math.round(result.pages[i].height);
+          }
           expect(result).to.eql(expectedOutput);
         });
       });

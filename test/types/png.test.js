@@ -16,7 +16,7 @@ describe('png', function () {
     });
 
     it('should return false for a non-PNG', function () {
-      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.pdf');
+      var pdfPath = path.resolve(__dirname, '../fixtures/pdf/123x456.1.pdf');
       var result = png.detect(fs.readFileSync(pdfPath));
       expect(result).to.eql(false);
     });
@@ -31,12 +31,16 @@ describe('png', function () {
       var fileSplit = file.split(/x|\./);
       var width = parseInt(fileSplit[0]);
       var height = parseInt(fileSplit[1]);
+      var expectedOutput = {
+        type: 'png',
+        pages: [{ width: width, height: height }]
+      };
 
       it('should return the correct dimensions for ' + file, function () {
         return calipers.measure(path.resolve(pngPath, file))
         .bind({})
         .then(function (result) {
-          expect(result).to.eql({ width: width, height: height, type: 'png' });
+          expect(result).to.eql(expectedOutput);
         });
       });
     });

@@ -1,12 +1,20 @@
 # calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers)
 
-The fastest Node.js library for measuring image and PDF dimensions.
-
-**Status**: Basic support for PDFs, PNGs and JPEGs.
+The fastest Node.js library for measuring PDF, PNG, and JPEG dimensions.
 
 Calipers was built to provide method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during request-time. The simplest way to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck, primarily because `child_process.exec` blocks the main event loop for significant periods of time, not during the child process' execution, but while the child process is being spawned.
 
 Calipers remains performant because it avoids spawning child processes and it doesn't read entire files into memory. Instead, it intelligently reads only parts of the files that are necessary to determine the type and the dimensions of the file.
+
+# Usage
+
+### `measure(filePath, [callback])`
+
+Measures the file at the given path.
+- `filePath` - The path of the file.
+- `callback` - called when the file has been measured
+  - `err` - An Error is thrown for unsupported file types or corrupt files.
+  - `result` - An object containing the file dimension. Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, or `'jpeg'`, and `pages` is an array of objects with keys `width` and `height`.
 
 # Examples
 
@@ -17,25 +25,35 @@ var calipers = require('calipers');
 calipers.measure('/path/to/image.png', function (err, result) {
   // result:
   // {
-  //   width: 450,
-  //   height: 670,
-  //   type: 'pdf'
+  //   type: 'pdf',
+  //   pages: [
+  //     {
+  //       width: 450,
+  //       height: 670
+  //     },
+  //     {
+  //       width: 450,
+  //       height: 670
+  //     }
+  //   ]
   // }
 });
 
 // Or you can use promises:
-calipers.measure('/path/to/file.pdf')
+calipers.measure('/path/to/file.png')
 .then(function (result) {
   // result:
   // {
-  //   width: 450,
-  //   height: 670,
-  //   type: 'pdf'
+  //   type: 'png',
+  //   pages: [
+  //     {
+  //       width: 450,
+  //       height: 670
+  //     }
+  //   ]
   // }
 });
 ```
-
-Note that a `TypeError` may be thrown if the file type is not supported or calipers is unable to parse a file.
 
 # Benchmarks
 
@@ -63,19 +81,13 @@ apt-get install libpoppler-cpp-dev
 
 # Contribute
 
-Yes, please.
+The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count: `<width>x<height>.<page count>.pdf`. Fixes for broken files are welcome, but not necessary.
 
 # TODO
 
-- [X] Hook up to Travis CI and add badge
-- [X] Add PNG support
-- [X] Add JPEG support
-- [X] Reconfigure tests
-- [X] Add a bunch of PDFs to test
 - [ ] Add a bunch of PNGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] Add a bunch of JPEGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] How to best handle PDFs with decimal dimensions?
-- [ ] Support for multiple pages - probably will change the results object
 - [ ] Create benchmarks
 
 #### Inspiration

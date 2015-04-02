@@ -14,7 +14,7 @@ Measures the PDF, PNG, or JPEG file at the given path.
 - `filePath` - The path of the file.
 - `callback` - called when the file has been measured
   - `err` - An Error is thrown for unsupported file types or corrupt files.
-  - `result` - An object containing the file dimension. Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, or `'jpeg'`, and `pages` is an array of objects with keys `width` and `height`.
+  - `result` - Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, or `'jpeg'`, and `pages` is an array of objects with keys `width` and `height`. For PNG and JPEG files, `width` and `height` are the integer pixel dimensions. For PDF they are floating-point PostScript Point dimensions.
 
 # Examples
 
@@ -81,13 +81,12 @@ apt-get install libpoppler-cpp-dev
 
 # Contribute
 
-The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count: `<width>x<height>.<page count>.pdf`. Fixes for these files are welcome, but not necessary.
+The easiest and most helpful way to contribute is to find a file that calipers incorrectly measures, and submit a PR with the file. The tests automatically run against all files in the `test/fixtures` directory, so simply drop it into the appropriate subdirectory, and name it according to its size `<width>x<height>.png`. If it's a PDF, include the page count and round the PostScript Point to the nearest integer: `<width>x<height>.<page count>.pdf`. Fixes for these files are welcome, but not necessary.
 
 # TODO
 
 - [ ] Add a bunch of PNGs to test (just drop them in the fixtures folder and name them by dimension)
 - [ ] Add a bunch of JPEGs to test (just drop them in the fixtures folder and name them by dimension)
-- [ ] How to best handle PDFs with decimal dimensions?
 - [ ] Create benchmarks
 
 #### Inspiration

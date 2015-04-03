@@ -1,11 +1,8 @@
 {
   "name": "calipers",
-  "version": "0.1.1",
-  "description": "A library for measuring the width and height of PDFs and images.",
+  "version": "1.0.0",
+  "description": "The fastest Node.js library for measuring PDF, PNG, and JPEG dimensions.",
   "main": "lib/index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "mocha test --recursive"
   },

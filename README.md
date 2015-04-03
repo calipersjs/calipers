@@ -1,4 +1,4 @@
-# calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers)
+# calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers) [![Coverage Status](https://coveralls.io/repos/lob/calipers/badge.svg)](https://coveralls.io/r/lob/calipers)
 
 The fastest Node.js library for measuring **PDF**, **PNG**, and **JPEG** dimensions.
 

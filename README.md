@@ -6,6 +6,8 @@ Calipers was built to provide method of determining the dimensions of an image o
 
 Calipers remains performant because it avoids spawning child processes and it doesn't read entire files into memory. Instead, it intelligently reads only parts of the files that are necessary to determine the type and the dimensions of the file.
 
+**Note**: Currently supports node 0.10.x, but not 0.12.x, due to the dependence on poppler-simple which is [not yet supporting 0.12.x](https://github.com/blackbeam/poppler-simple/issues/5).
+
 # Usage
 
 ### `measure(filePath, [callback])`

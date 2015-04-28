@@ -10,7 +10,7 @@ describe('utils', function () {
       var string = 'Test String%!@#\n';
       var buffer = new Buffer(string);
       var result = utils.ascii(buffer, 0, string.length);
-      expect(result).to.eql(string);
+      return expect(result).to.eql(string);
     });
   });
 

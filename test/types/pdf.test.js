@@ -56,7 +56,7 @@ describe('pdf', function () {
 
     it('should error with a corrupt PDF', function () {
       var pdfPath = path.resolve(__dirname, '../fixtures/corrupt/corrupt.pdf');
-      expect(calipers.measure(pdfPath)).to.be.rejectedWith(Error);
+      return expect(calipers.measure(pdfPath)).to.be.rejectedWith(Error);
     });
 
   });

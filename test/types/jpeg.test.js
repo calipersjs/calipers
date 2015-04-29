@@ -49,7 +49,7 @@ describe('jpeg', function () {
 
     it('should error with a corrupt JPEG', function () {
       var jpegPath = path.resolve(__dirname, '../fixtures/corrupt/corrupt.jpg');
-      expect(calipers.measure(jpegPath)).to.be.rejectedWith(Error);
+      return expect(calipers.measure(jpegPath)).to.be.rejectedWith(Error);
     });
 
   });

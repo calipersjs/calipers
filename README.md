@@ -87,8 +87,10 @@ brew install poppler
 On Ubuntu:
 
 ```
+apt-get install pkg-config
 apt-get install libpoppler-cpp-dev
 ```
+
 
 # Contribute
 

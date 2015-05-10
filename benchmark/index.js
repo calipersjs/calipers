@@ -14,7 +14,7 @@ var CONCURRENCY =  50;
 
 var PDF_PATH  = path.resolve(__dirname, '../test/fixtures/pdf/123x456.1.pdf');
 var PNG_PATH  = path.resolve(__dirname, '../test/fixtures/png/123x456.png');
-var JPEG_PATH = path.resolve(__dirname, '../test/fixtures/jpeg/123x456.jpeg');
+var JPEG_PATH = path.resolve(__dirname, '../test/fixtures/jpeg/123x456.jpg');
 
 function runCalipersBenchmark (name, file) {
   var arr = new Array(ITERATIONS);

@@ -4,8 +4,8 @@
   "description": "The fastest Node.js library for measuring PDF, PNG, and JPEG dimensions.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test --recursive",
-    "testCI": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 15000",
+    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100"
   },
   "repository": {
     "type": "git",

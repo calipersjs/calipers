@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - '0.10.32'
-script: npm run testCI
+script:
+  - npm test
+  - npm run enforce
 before_install:
   - sudo apt-get install libpoppler-cpp-dev

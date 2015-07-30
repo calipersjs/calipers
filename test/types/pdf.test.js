@@ -59,6 +59,11 @@ describe('pdf', function () {
       return expect(calipers.measure(pdfPath)).to.be.rejectedWith(Error);
     });
 
+    it('should error with a PDF with no pages', function () {
+      var pdfPath = path.resolve(__dirname, '../fixtures/corrupt/no_pages.pdf');
+      return expect(calipers.measure(pdfPath)).to.be.rejectedWith(Error);
+    });
+
   });
 
 });

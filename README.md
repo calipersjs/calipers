@@ -22,7 +22,7 @@ Measures the PDF, PNG, or JPEG file at the given path.
 var calipers = require('calipers');
 
 // You can use a callback:
-calipers.measure('/path/to/image.png', function (err, result) {
+calipers.measure('/path/to/document.pdf', function (err, result) {
   // result:
   // {
   //   type: 'pdf',

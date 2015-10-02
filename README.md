@@ -10,11 +10,11 @@ Calipers remains performant because it avoids spawning child processes and it do
 
 ### `measure(filePath, [callback])`
 
-Measures the PDF, PNG, or JPEG file at the given path.
+Measures the PDF, PNG, GIF, or JPEG file at the given path.
 - `filePath` - The path of the file.
 - `callback` - called when the file has been measured
   - `err` - An Error is thrown for unsupported file types or corrupt files.
-  - `result` - Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, or `'jpeg'`, and `pages` is an array of objects with keys `width` and `height`. For PNG and JPEG files, `pages` always has 1 element and `width` and `height` are the integer pixel dimensions. For PDF `width` and `height` are floating-point PostScript Point dimensions.
+  - `result` - Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, `'gif'`, or `'jpeg'`, and `pages` is an array of objects with keys `width` and `height`. For PNG and JPEG files, `pages` always has 1 element and `width` and `height` are the integer pixel dimensions. For PDF `width` and `height` are floating-point PostScript Point dimensions.
 
 # Examples
 

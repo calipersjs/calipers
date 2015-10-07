@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "bluebird": "^2.9.13",
-    "poppler-simple": "^0.1.10"
+    "poppler-simple": "^0.2.1"
   }
 }

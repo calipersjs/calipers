@@ -1,5 +1,9 @@
 ## Change Log
 
+**1.3.0** — <small>_October 8, 2015_</small> — [Diff](https://github.com/lob/calipers/compare/v1.2.0...v1.3.0)  
+
+*   Added support for Node 4. #24, #25, #27
+
 **1.2.0** — <small>_October 2, 2015_</small> — [Diff](https://github.com/lob/calipers/compare/v1.1.0...v1.2.0)  
 
 *   Added support for GIFs. #22

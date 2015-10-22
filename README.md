@@ -8,6 +8,29 @@ Calipers was built to provide a method of determining the dimensions of an image
 
 Calipers remains performant because it avoids spawning child processes and it doesn't read entire files into memory. Instead, it intelligently reads only parts of the files that are necessary to determine the type and the dimensions of the file.
 
+# Installation
+
+The [Poppler](http://poppler.freedesktop.org/) library C++ interface is required for PDF support.
+
+To install Poppler on Mac OS X using Homebrew:
+
+```
+brew install poppler
+```
+
+To install Poppler on Ubuntu:
+
+```
+apt-get install pkg-config
+apt-get install libpoppler-cpp-dev
+```
+
+To install Calipers, use NPM:
+
+```
+npm install calipers
+```
+
 # Usage
 
 ### `measure(filePath, [callback])`
@@ -71,28 +94,6 @@ exec: identify | JPEG | 1820
 calipers | PDF | 104
 calipers | PNG | 41
 calipers | JPEG | 80
-
-# Installation
-
-```
-npm install calipers
-```
-
-You'll also need to install [Poppler](http://poppler.freedesktop.org/) for PDF support.
-
-On Mac OS X using Homebrew:
-
-```
-brew install poppler
-```
-
-On Ubuntu:
-
-```
-apt-get install pkg-config
-apt-get install libpoppler-cpp-dev
-```
-
 
 # Contribute
 

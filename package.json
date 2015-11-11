@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 15000",
-    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100"
+    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "chai": "^2.2.0",
     "chai-as-promised": "^4.3.0",
     "coveralls": "^2.11.2",
+    "eslint": "^1.9.0",
+    "eslint-config-lob": "^1.0.1",
     "istanbul": "^0.3.13",
     "mocha": "^2.1.0",
     "mocha-lcov-reporter": "0.0.2"

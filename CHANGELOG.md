@@ -1,5 +1,9 @@
 ## Change Log
 
+**1.5.0** — <small>_November 3, 2015_</small> — [Diff](https://github.com/lob/calipers/compare/v1.4.0...v1.5.0)
+
+*   Added support for BMP images. #33
+
 **1.4.0** — <small>_November 3, 2015_</small> — [Diff](https://github.com/lob/calipers/compare/v1.3.0...v1.4.0)
 
 *   Added support for WEBP images. #31

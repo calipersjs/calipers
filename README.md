@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers) [![Coverage Status](https://coveralls.io/repos/lob/calipers/badge.svg)](https://coveralls.io/r/lob/calipers)
 
-Current file types supported: **PDF, PNG, JPEG, GIF, WEBP**
+Current file types supported: **PDF, PNG, JPEG, GIF, BMP, WEBP**
 
 Calipers was built to provide a method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during the lifecyle of an API request. The simplest way to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck due to the innefficiency of shelling-out.
 
@@ -39,7 +39,7 @@ Measures the PDF, PNG, GIF, or JPEG file at the given path.
 - `filePath` - The path of the file.
 - `callback` - called when the file has been measured
   - `err` - An Error is thrown for unsupported file types or corrupt files.
-  - `result` - Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, `'gif'`, `'jpeg'`, or `'webp'`, and `pages` is an array of objects with keys `width` and `height`. For PNG and JPEG files, `pages` always has 1 element and `width` and `height` are the integer pixel dimensions. For PDF `width` and `height` are floating-point PostScript Point dimensions.
+  - `result` - Contains keys `type` and `pages`, where `type` is one of `'png'`, `'pdf'`, `'gif'`, `'jpeg'`, `'bmp'`, or `'webp'`, and `pages` is an array of objects with keys `width` and `height`. For PNG and JPEG files, `pages` always has 1 element and `width` and `height` are the integer pixel dimensions. For PDF `width` and `height` are floating-point PostScript Point dimensions.
 
 # Examples
 

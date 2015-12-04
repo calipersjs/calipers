@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lob/calipers.git"
+    "url": "https://github.com/calipersjs/calipers.git"
   },
   "keywords": [
     "image",
@@ -22,9 +22,9 @@
   "author": "Marcus Gartner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lob/calipers/issues"
+    "url": "https://github.com/calipersjs/calipers/issues"
   },
-  "homepage": "https://github.com/lob/calipers",
+  "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
     "chai": "^2.2.0",
     "chai-as-promised": "^4.3.0",

@@ -36,7 +36,6 @@
     "mocha-lcov-reporter": "0.0.2"
   },
   "dependencies": {
-    "bluebird": "^2.9.13",
-    "poppler-simple": "^0.2.2"
+    "bluebird": "^2.9.13"
   }
 }

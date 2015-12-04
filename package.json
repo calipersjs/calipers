@@ -1,7 +1,7 @@
 {
   "name": "calipers",
-  "version": "1.5.1",
-  "description": "The fastest Node.js library for measuring PDF, PNG, and JPEG dimensions.",
+  "version": "2.0.0-rc.1",
+  "description": "The fastest Node.js library for measuring image and PDF dimensions.",
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 15000",
@@ -17,7 +17,11 @@
     "size",
     "pdf",
     "png",
-    "jpeg"
+    "jpeg",
+    "gif",
+    "bmp",
+    "svg",
+    "webp"
   ],
   "author": "Marcus Gartner",
   "license": "MIT",
@@ -26,16 +30,17 @@
   },
   "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
-    "chai": "^2.2.0",
-    "chai-as-promised": "^4.3.0",
-    "coveralls": "^2.11.2",
-    "eslint": "^1.9.0",
-    "eslint-config-lob": "^1.0.1",
-    "istanbul": "^0.3.13",
-    "mocha": "^2.1.0",
-    "mocha-lcov-reporter": "0.0.2"
+    "calipers-png": "2.0.0-rc.1",
+    "chai": "2.x.x",
+    "chai-as-promised": "4.x.x",
+    "coveralls": "2.x.x",
+    "eslint": "1.x.x",
+    "eslint-config-lob": "1.x.x",
+    "istanbul": "0.x.x",
+    "mocha": "2.x.x",
+    "mocha-lcov-reporter": "0.x.x"
   },
   "dependencies": {
-    "bluebird": "^2.9.13"
+    "bluebird": "3.x.x"
   }
 }

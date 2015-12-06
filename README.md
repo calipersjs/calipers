@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/lob/calipers.svg)](https://travis-ci.org/lob/calipers) [![Coverage Status](https://coveralls.io/repos/lob/calipers/badge.svg)](https://coveralls.io/r/lob/calipers)
 
-Current file types supported: **PDF, PNG, JPEG, GIF, BMP, WEBP**
+Current file types supported: **PDF, PNG, JPEG, GIF**
 
 Calipers was built to provide a method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during the lifecyle of an API request. The simplest way to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck due to the innefficiency of shelling-out.
 

@@ -1,6 +1,4 @@
 language: node_js
-env:
-  - CXX=g++-4.8
 node_js:
   - '0.10.32'
   - '0.12.2'
@@ -9,11 +7,3 @@ script:
   - npm test
   - npm run enforce
   - npm run lint
-before_install:
-  - sudo apt-get install libpoppler-cpp-dev
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8

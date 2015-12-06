@@ -2,7 +2,6 @@
 
 var path     = require('path');
 var expect   = require('chai').expect;
-var calipers = require('../lib/index');
 
 describe('index', function () {
 
@@ -14,7 +13,7 @@ describe('index', function () {
   };
 
   var fakeTruePlugin = {
-    detect: function (buffer) { 
+    detect: function (buffer) {
       return buffer.toString('ascii', 0, 12) === 'A text file.';
     },
     measure: function () {
@@ -23,7 +22,7 @@ describe('index', function () {
   };
 
   var fakeFalsePlugin = {
-    detect: function () { 
+    detect: function () {
       return false;
     }
   };

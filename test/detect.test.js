@@ -12,24 +12,24 @@ describe('detect', function () {
   var txtPath = path.resolve(__dirname, 'fixtures/file.txt');
 
   var fakeTruePlugin = {
-    detect: function (buffer) { 
+    detect: function (buffer) {
       return buffer.toString('ascii', 0, 12) === 'A text file.';
     }
   };
 
   var fakeFalsePlugin = {
-    detect: function () { 
+    detect: function () {
       return false;
     }
   };
 
   it('should return the first plugin that returns true', function () {
-     return popen(txtPath, 'r')
-     .then(function (fd) {
-       return detect(fd, [fakeFalsePlugin, fakeTruePlugin]);
-     })
-     .then(function (plugin) {
-       expect(plugin).to.eql(fakeTruePlugin);
+    return popen(txtPath, 'r')
+    .then(function (fd) {
+      return detect(fd, [fakeFalsePlugin, fakeTruePlugin]);
+    })
+    .then(function (plugin) {
+      expect(plugin).to.eql(fakeTruePlugin);
     });
   });
 

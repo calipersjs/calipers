@@ -18,16 +18,20 @@ To use Calipers, you must install the core library and at least one plugin. For 
 npm install --save calipers calipers-png
 ```
 
+### Official Plugins
+
 Here is a list of officially supported plugins:
 
 File Type | Plugin
 --------- | ------
 PNG       | [calipers-png](https://github.com/calipersjs/calipers-png)
 JPEG      | [calipers-jpeg](https://github.com/calipersjs/calipers-jpeg)
-PDF †    | [calipers-pdf](https://github.com/calipersjs/calipers-pdf)
+PDF <sup>†</sup>    | [calipers-pdf](https://github.com/calipersjs/calipers-pdf)
 GIF       | [calipers-gif](https://github.com/calipersjs/calipers-gif)
 
-† The [Poppler](http://poppler.freedesktop.org/) library C++ interface is required for PDF support. You must install Poppler before running `npm install calipers-pdf`.
+##### <sup>†</sup>PDF Support
+
+The [Poppler](http://poppler.freedesktop.org/) library C++ interface is required for PDF support. You must install Poppler before running `npm install calipers-pdf`.
 
 To install Poppler on Mac OS X using Homebrew:
 
@@ -135,6 +139,7 @@ The easiest and most helpful way to contribute is to find a file that Calipers i
 
 *More information coming soon.*
 
-#### Inspiration
+<br/><br/>
+##### Inspiration
 
 Inspired by netroy's image-size library: https://github.com/netroy/image-size

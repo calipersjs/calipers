@@ -1,6 +1,6 @@
 {
   "name": "calipers",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0",
   "description": "The fastest Node.js library for measuring image and PDF dimensions.",
   "main": "lib/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
-    "calipers-png": "2.0.0-rc.1",
+    "calipers-png": "2.x.x",
     "chai": "2.x.x",
     "chai-as-promised": "4.x.x",
     "coveralls": "2.x.x",

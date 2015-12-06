@@ -1,5 +1,9 @@
 ## Change Log
 
+**2.0.0** — <small>_November 3, 2015_</small> — [Diff](https://github.com/calipersjs/calipers/compare/1.5.1...2.0.0)
+
+*   Measurement of different file types is now available through plugins. You must now install a plugin for each file type you wish to measure. Please see the README for how to install and use version 2 plugins.
+
 **1.5.0** — <small>_November 3, 2015_</small> — [Diff](https://github.com/lob/calipers/compare/v1.4.0...v1.5.0)
 
 *   Added support for BMP images. #33

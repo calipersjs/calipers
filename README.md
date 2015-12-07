@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/calipersjs/calipers.svg)](https://travis-ci.org/lob/calipers) [![Coverage Status](https://coveralls.io/repos/calipersjs/calipers/badge.svg)](https://coveralls.io/r/calipersjs/calipers)
 
-Current file types supported: **PDF, PNG, JPEG, GIF**
+Current file types supported: **PDF, PNG, JPEG, GIF, BMP, WEBP, SVG**
 
 Calipers was built to provide a method of determining the dimensions of an image or PDF much faster and less resource-intensive than shelling-out to ImageMagick. At [Lob](https://lob.com) we must validate image and PDF sizes during the lifecyle of an API request. The simplest way to do this is to shell-out to ImageMagick to identify the type and size of a file. For high-traffic servers, this becomes a major bottleneck due to the innefficiency of shelling-out.
 
@@ -28,6 +28,9 @@ PNG       | [calipers-png](https://github.com/calipersjs/calipers-png)
 JPEG      | [calipers-jpeg](https://github.com/calipersjs/calipers-jpeg)
 PDF <sup>†</sup>    | [calipers-pdf](https://github.com/calipersjs/calipers-pdf)
 GIF       | [calipers-gif](https://github.com/calipersjs/calipers-gif)
+BMP       | [calipers-bmp](https://github.com/calipersjs/calipers-bmp)
+WEBP      | [calipers-webp](https://github.com/calipersjs/calipers-webp)
+SVG       | [calipers-svg](https://github.com/calipersjs/calipers-svg)
 
 ##### <sup>†</sup>PDF Support
 
@@ -44,12 +47,6 @@ To install Poppler on Ubuntu:
 ```
 apt-get install pkg-config
 apt-get install libpoppler-cpp-dev
-```
-
-To install Calipers, use NPM:
-
-```
-npm install calipers
 ```
 
 # Usage
@@ -112,7 +109,60 @@ calipers.measure('/path/to/file.png')
 
 # Custom Plugins
 
-*More information coming soon.*
+Calipers also allows custom plugins for file types that are not officially supported or application-specific measuring. A Calipers plugin is simply an object with two functions, `detect` and `measure`. 
+
+##### `detect(buffer)`
+
+```
+@param {Buffer} buffer - a Node buffer containing the first 16 bytes of the file
+@returns {Boolean} true if the given buffer is a file type supported by the plugin
+```
+
+##### `measure(path, fd)`
+
+```
+@param {String} path - the file to measure
+@param {Integer} fd - an opened, read-only file descriptor of the file; do not close,
+  Calipers will close file descriptors automatically
+@returns {Promise<Object> | Object} an object or promise resolving an object
+  containing 'type' and 'pages' fields. 'pages' is an array of objects, each with
+  a 'width' and 'height'
+```
+
+The simple (and useless) example below illustrates how to create and use a custom plugin.
+
+```javascript
+var fakePlugin = {
+  detect: function (buffer) {
+    // Return true if the file starts with 'fake'.
+    return buffer.toString('ascii', 0, 4) === 'fake';
+  },
+  measure: function (path, fd) {
+    // Return an arbitrary measurement.
+    return {
+      type: 'fake',
+      pages: [{
+        width: 0,
+        height: 0
+      }]
+    };
+  }
+};
+
+var calipers = require('calipers')('png', 'jpeg', fakePlugin);
+
+calipers.measure('path/to/file/that/starts/with/fake')
+.then(function (result) {
+  // result:
+  // {
+  //   type: 'fake',
+  //   pages: [{
+  //     width: 0,
+  //     height: 0
+  //   }]
+  // }
+});
+```
 
 # Benchmarks
 
@@ -122,12 +172,16 @@ These benchmarks are running 500 iterations of each method  on the 123x456 PDF, 
 
 Method | FileType | Time (ms)
 ------ | -------- | ----:
-exec: pdfinfo  | PDF | 1897
-exec: identify | PNG | 1801
-exec: identify | JPEG | 1820
-calipers | PDF | 104
-calipers | PNG | 41
-calipers | JPEG | 80
+exec: pdfinfo  | PDF | 2001
+exec: identify | PNG | 1814
+exec: identify | JPEG | 1819
+exec: identify | GIF | 2411
+exec: identify | BMP | 1788
+calipers | PDF | 92
+calipers | PNG | 34
+calipers | JPEG | 56
+calipers | GIF | 36
+calipers | BMP | 35
 
 # Contribute
 
@@ -135,9 +189,9 @@ calipers | JPEG | 80
 
 The easiest and most helpful way to contribute is to find a file that Calipers incorrectly measures, and submit an issue or PR with the file.
 
-### Creating a new Plugin
+### New Plugins
 
-*More information coming soon.*
+If there is a file type you'd like to see supported, create an issue for it and we'll do our best to support it. Also, if you've created a custom plugin that you've found useful, please consider offering it as an official plugin.
 
 <br/><br/>
 ##### Inspiration

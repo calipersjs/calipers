@@ -1,4 +1,4 @@
-<img src="https://s3-us-west-2.amazonaws.com/devassets.lob.com/calipers2.jpg" width="700">
+<img src="https://avatars3.githubusercontent.com/u/16140590?v=3&s=200">
 
 [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/calipersjs/calipers.svg)](https://travis-ci.org/lob/calipers) [![Coverage Status](https://coveralls.io/repos/calipersjs/calipers/badge.svg)](https://coveralls.io/r/calipersjs/calipers)
 

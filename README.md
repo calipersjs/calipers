@@ -164,9 +164,9 @@ calipers.measure('path/to/file/that/starts/with/fake')
 
 # Benchmarks
 
-As with all benchmarks, take these with a grain of salt. You can run the benchmarks on your own hardware by cloning benchmark repository: https://github.com/calipersjs/benchmark.
+As with all benchmarks, take these with a grain of salt. You can run the benchmarks on your own hardware by cloning the benchmark repository: https://github.com/calipersjs/benchmark.
 
-These benchmarks are running 500 iterations of each method  on the 123x456 PDF, PNG, and JPEG with a concurrency setting of 50. They were run on a Mid-2014 13" MacBook Pro with a 2.6 GHz Intel Core i5.
+These benchmarks show the time taken to measure 500 iterations of each file type and each method with a concurrency of 50. They were run on a Mid-2014 13" MacBook Pro with a 2.6 GHz Intel Core i5.
 
 File Type | Shell Out Time (ms) | Calipers Time (ms)
 --------- | ------------------: | -----------------:

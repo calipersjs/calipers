@@ -168,18 +168,17 @@ As with all benchmarks, take these with a grain of salt. You can run the benchma
 
 These benchmarks are running 500 iterations of each method  on the 123x456 PDF, PNG, and JPEG with a concurrency setting of 50. They were run on a Mid-2014 13" MacBook Pro with a 2.6 GHz Intel Core i5.
 
-Method | FileType | Time (ms)
------- | -------- | ----:
-exec: pdfinfo  | PDF | 2001
-exec: identify | PNG | 1814
-exec: identify | JPEG | 1819
-exec: identify | GIF | 2411
-exec: identify | BMP | 1788
-calipers | PDF | 92
-calipers | PNG | 34
-calipers | JPEG | 56
-calipers | GIF | 36
-calipers | BMP | 35
+File Type | Shell Out Time (ms) | Calipers Time (ms)
+--------- | ------------------: | -----------------:
+PDF  | 2001 <sup>†</sup> | 92
+PNG  | 1814 <sup>††</sup> | 34
+JPEG | 1819 <sup>††</sup> | 56
+GIF  | 2411 <sup>††</sup> | 36
+BMP  | 1788 <sup>††</sup> | 35
+
+<sup>†</sup> Measured by spawning a child process which runs Poppler's `pdfinfo` command.
+
+<sup>††</sup> Measured by spawning a child process which runs ImageMagicks's `identify` command.
 
 # Contribute
 

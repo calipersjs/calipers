@@ -30,7 +30,7 @@ BMP       | [calipers-bmp](https://github.com/calipersjs/calipers-bmp)
 WEBP      | [calipers-webp](https://github.com/calipersjs/calipers-webp)
 SVG       | [calipers-svg](https://github.com/calipersjs/calipers-svg)
 
-##### <sup>†</sup>PDF Support
+##### <sup>†</sup> PDF Support
 
 The [Poppler](http://poppler.freedesktop.org/) library C++ interface is required for PDF support. You must install Poppler before running `npm install calipers-pdf`.
 

@@ -53,7 +53,7 @@ Calipers must be initialized by calling the required function with supported fil
 
 ```javascript
 // Initializes Calipers with support for calipers-png, calipers-jpeg, calipers-pdf.
-var calipers = require('calipers')('png', 'jpeg', 'pdf');
+var Calipers = require('calipers')('png', 'jpeg', 'pdf');
 ```
 
 Calipers exposes a single function, `measure`, once initialized.
@@ -69,10 +69,10 @@ Measures the file at the given path.
 # Examples
 
 ```js
-var calipers = require('calipers')('png', 'pdf');
+var Calipers = require('calipers')('png', 'pdf');
 
 // You can use a callback:
-calipers.measure('/path/to/document.pdf', function (err, result) {
+Calipers.measure('/path/to/document.pdf', function (err, result) {
   // result:
   // {
   //   type: 'pdf',
@@ -90,7 +90,7 @@ calipers.measure('/path/to/document.pdf', function (err, result) {
 });
 
 // Or you can use promises:
-calipers.measure('/path/to/file.png')
+Calipers.measure('/path/to/file.png')
 .then(function (result) {
   // result:
   // {
@@ -147,9 +147,9 @@ var fakePlugin = {
   }
 };
 
-var calipers = require('calipers')('png', 'jpeg', fakePlugin);
+var Calipers = require('calipers')('png', 'jpeg', fakePlugin);
 
-calipers.measure('path/to/file/that/starts/with/fake')
+Calipers.measure('path/to/file/that/starts/with/fake')
 .then(function (result) {
   // result:
   // {

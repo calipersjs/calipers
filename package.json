@@ -35,7 +35,7 @@
     "chai-as-promised": "4.x.x",
     "coveralls": "2.x.x",
     "eslint": "1.x.x",
-    "eslint-config-lob": "1.x.x",
+    "eslint-config-lob": "1.0.1",
     "istanbul": "0.x.x",
     "mocha": "2.x.x",
     "mocha-lcov-reporter": "0.x.x"

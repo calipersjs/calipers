@@ -1,3 +1,5 @@
+#### 2.0.1 (2018-06-08)
+
 ## Change Log
 
 **2.0.0** — <small>_November 3, 2015_</small> — [Diff](https://github.com/calipersjs/calipers/compare/1.5.1...2.0.0)

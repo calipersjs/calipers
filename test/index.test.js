@@ -6,7 +6,7 @@ var expect   = require('chai').expect;
 describe('index', function () {
 
   var txtPath = path.resolve(__dirname, 'fixtures/file.txt');
-  var pngPath = path.resolve(__dirname, 'fixtures/123x456.png');
+  var pngPath = path.resolve(__dirname, 'fixtures/png/123x456.png');
   var output = {
     type: 'txt',
     pages: [{ width: 0, height: 0 }]

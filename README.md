@@ -1,4 +1,4 @@
-# Calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/calipersjs/calipers.svg)](https://travis-ci.org/lob/calipers)
+# Calipers [![npm version](https://badge.fury.io/js/calipers.svg)](http://badge.fury.io/js/calipers) [![Build Status](https://travis-ci.org/calipersjs/calipers.svg)](https://travis-ci.org/calipersjs/calipers)
 
 Current file types supported: **PDF, PNG, JPEG, GIF, BMP, WEBP, SVG**
 

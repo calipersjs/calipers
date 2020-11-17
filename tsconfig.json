@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "target": "es5",
+    "declaration": true,
+    "strict": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules", "lib", "test"]
+}

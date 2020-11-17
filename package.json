@@ -4,8 +4,10 @@
   "description": "The fastest Node.js library for measuring image and PDF dimensions.",
   "main": "lib/index.js",
   "scripts": {
-    "bench": "node bench",
-    "test": "mocha",
+    "bench": "ts-node bench",
+    "b": "tsc bench/test",
+    "build": "tsc",
+    "test": "jest",
     "lint": "eslint .",
     "lint:file": "eslint"
   },
@@ -31,18 +33,18 @@
   },
   "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
+    "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "benny": "^3.6.15",
     "calipers-png": "2.x.x",
-    "chai": "2.x.x",
-    "chai-as-promised": "4.x.x",
     "eslint": "^7.13.0",
     "eslint-config-standard": "^16.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "mocha": "2.x.x",
+    "jest": "26.x.x",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
   },
   "dependencies": {

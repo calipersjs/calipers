@@ -5,9 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "bench": "node bench",
-    "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 15000",
-    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
-    "lint": "eslint ."
+    "test": "mocha",
+    "lint": "eslint .",
+    "lint:file": "eslint"
   },
   "repository": {
     "type": "git",
@@ -31,16 +31,19 @@
   },
   "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
     "benny": "^3.6.15",
     "calipers-png": "2.x.x",
     "chai": "2.x.x",
     "chai-as-promised": "4.x.x",
-    "coveralls": "2.x.x",
-    "eslint": "1.x.x",
-    "eslint-config-lob": "1.0.1",
-    "istanbul": "0.x.x",
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "mocha": "2.x.x",
-    "mocha-lcov-reporter": "0.x.x"
+    "typescript": "^4.0.5"
   },
   "dependencies": {
     "bluebird": "3.x.x"

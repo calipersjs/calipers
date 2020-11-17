@@ -1,9 +1,6 @@
 language: node_js
 node_js:
-  - '0.10.32'
-  - '0.12.2'
-  - '4.1.2'
+  - '14.6.0'
 script:
   - npm test
-  - npm run enforce
   - npm run lint

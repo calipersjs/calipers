@@ -1,7 +1,6 @@
 'use strict';
 
 var path     = require('path');
-var expect   = require('chai').expect;
 
 describe('index', function () {
 
@@ -30,7 +29,7 @@ describe('index', function () {
   it('works with callbacks', function (done) {
     var calipers = require('../lib/index')(fakeFalsePlugin, 'png', fakeTruePlugin);
     calipers.measure(txtPath, function (err, result) {
-      expect(result).to.eql(output);
+      expect(result).toBe(output);
       done();
     });
   });
@@ -39,7 +38,7 @@ describe('index', function () {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(txtPath)
     .then(function (result) {
-      expect(result).to.eql(output);
+      expect(result).toBe(output);
     });
   });
 
@@ -47,7 +46,7 @@ describe('index', function () {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(pngPath)
     .then(function (result) {
-      expect(result).to.eql({ type: 'png', pages: [{ width: 123, height: 456 }] });
+      expect(result).toStrictEqual({ type: 'png', pages: [{ width: 123, height: 456 }] });
     });
   });
 

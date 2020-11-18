@@ -4,6 +4,7 @@
   "description": "The fastest Node.js library for measuring image and PDF dimensions.",
   "main": "lib/index.js",
   "scripts": {
+    "bench": "node bench",
     "test": "NODE_ENV=test istanbul cover _mocha -- test --recursive --timeout 15000",
     "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
     "lint": "eslint ."
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/calipersjs/calipers",
   "devDependencies": {
+    "benny": "^3.6.15",
     "calipers-png": "2.x.x",
     "chai": "2.x.x",
     "chai-as-promised": "4.x.x",

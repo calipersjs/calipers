@@ -14,15 +14,26 @@ let files = fs.readdirSync(fixtures)
 files = files.filter(function (f) { return f.endsWith('.png') })
 
 // Test that the format, width, and height of each file is calculated correctly.
-files.forEach(function (f) {
+for (const f of files) {
   test(f, async function () {
     const [width, height, format] = f.split(/x|\./)
     const filePath = path.resolve(fixtures, f)
 
-    const res = await calipers.measure(filePath, calipers.Format.PNG)
+    const expectedFormat = formatMap[format]
+    const expectedWidth = parseInt(width)
+    const expectedHeight = parseInt(height)
 
-    expect(res.format).toBe(formatMap[format])
-    expect(res.width).toBe(parseInt(width))
-    expect(res.height).toBe(parseInt(height))
+    // Test with a file path.
+    let res = await calipers.measure(filePath, calipers.Format.PNG)
+    expect(res.format).toBe(expectedFormat)
+    expect(res.width).toBe(expectedWidth)
+    expect(res.height).toBe(expectedHeight)
+
+    // Test with a buffer.
+    const buf = await fs.promises.readFile(filePath)
+    res = await calipers.measure(buf, calipers.Format.PNG)
+    expect(res.format).toBe(expectedFormat)
+    expect(res.width).toBe(expectedWidth)
+    expect(res.height).toBe(expectedHeight)
   })
-})
+}

@@ -1,9 +1,9 @@
 import * as fs from 'fs'
 
 // HEADER_LENGTH is the number of bytes to initially read to determine the type
-// of the given file. We read more than needed for this task, because
-// for some image formats, like PNG, the dimension metadata lives close to the
-// beginning of the file and we can avoid a second file read. 
+// of the given file. We read more than needed for this task, because for some
+// image formats, like PNG, the dimension metadata lives close to the beginning
+// of the file and we can avoid a second file read.
 const HEADER_LENGTH = 24
 
 // Format designates a supported file type for measurement.
@@ -20,28 +20,32 @@ export interface Result {
 }
 
 // measure returns the image dimensions of the file at the given path.
-export async function measure (path: string, formats: Format): Promise<Result> {
+export async function measure (input: string | Buffer, formats: Format): Promise<Result> {
+  if (Buffer.isBuffer(input)) {
+    return measureBuffer(input)
+  }
+
   let fd
-
   try {
-    fd = await fs.promises.open(path, 'r')
+    fd = await fs.promises.open(input, 'r')
 
-    const header = Buffer.alloc(HEADER_LENGTH)
-    await fd.read(header, 0, HEADER_LENGTH, 0)
+    const b = Buffer.alloc(HEADER_LENGTH)
+    await fd.read(b, 0, HEADER_LENGTH, 0)
 
-    const format = detect(header)
-
-    // TODO: check formats
-    if (format === Format.PNG) {
-      return measurePNG(header)
-    }
-
-    throw new Error('file type not supported')
+    return measureBuffer(b)
   } finally {
     if (fd) {
       fd.close()
     }
   }
+}
+
+function measureBuffer (b: Buffer): Result {
+  const format = detect(b)
+  if (format === Format.PNG) {
+    return measurePNG(b)
+  }
+  throw new Error('file type not supported')
 }
 
 // measurePNG returns the dimenions of a PNG file.

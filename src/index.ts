@@ -61,14 +61,25 @@ function measurePNG (header: Buffer): Result {
 // detect returns the file format of the given header buffer. Format.UNKNOWN is
 // returned if the file type is not supported.
 function detect (header: Buffer): Format {
-  if (ascii(header, 1, 8) === 'PNG\r\n\x1a\n' && ascii(header, 12, 16) === 'IHDR') {
+  // PNG
+  if (
+    // _PNG\r\n\x1a\n
+    header[0] === 0x89 &&
+    header[1] === 0x50 &&
+    header[2] === 0x4e &&
+    header[3] === 0x47 &&
+    header[4] === 0x0d &&
+    header[5] === 0x0a &&
+    header[6] === 0x1a &&
+    header[7] === 0x0a &&
+    // IHDR
+    header[12] === 0x49 &&
+    header[13] === 0x48 &&
+    header[14] === 0x44 &&
+    header[15] === 0x52
+  ) {
     return Format.PNG
   }
-  return Format.UNKNOWN
-}
 
-// ascii returns an ASCII string represented by the bytes in b from the start to
-// end indexes.
-function ascii (b: Buffer, start: number, end: number): string {
-  return b.toString('ascii', start, end)
+  return Format.UNKNOWN
 }

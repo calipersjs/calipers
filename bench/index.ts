@@ -34,7 +34,7 @@ files = files.filter(function (f) { return f.endsWith('.png') })
 
 // Create a benchmark for each image.
 const benchmarks: any[] = []
-files.forEach(function (f) {
+for (const f of files) {
   const [width, height, type] = f.split(/x|\./)
   const filePath = path.resolve(fixtures, f)
   const bench = b.add(`${type}-${width}x${height}`, async () => {
@@ -43,7 +43,15 @@ files.forEach(function (f) {
   for (let i = 0; i < COUNT; i++) {
     benchmarks.push(bench)
   }
-})
+
+  const buffer = fs.readFileSync(filePath)
+  const bufferBench = b.add(`${type}-${width}x${height}-buffer`, async () => {
+    await calipers.measure(buffer, calipers.Format.PNG)
+  })
+  for (let i = 0; i < COUNT; i++) {
+    benchmarks.push(bufferBench)
+  }
+}
 
 // Run the benchmark suite.
 b.suite(

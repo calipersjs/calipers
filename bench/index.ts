@@ -28,9 +28,10 @@ const ONE_BILLION = 1000000000
 
 const fixtures = path.resolve(__dirname, '../test/fixtures')
 
-// Load all PNG images in test/fixtures.
-let files = fs.readdirSync(fixtures)
-files = files.filter(function (f) { return f.endsWith('.png') })
+// Specify the images in test/fixtures to use for benchmarking.
+const files: string[] = [
+  '304x85.png'
+]
 
 // Create a benchmark for each image.
 const benchmarks: any[] = []

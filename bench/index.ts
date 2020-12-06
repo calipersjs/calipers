@@ -34,7 +34,7 @@ const files: string[] = [
 ]
 
 // Create a benchmark for each image.
-const benchmarks: any[] = []
+const benchmarks = []
 for (const f of files) {
   const [width, height, type] = f.split(/x|\./)
   const filePath = path.resolve(fixtures, f)

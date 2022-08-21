@@ -51,6 +51,7 @@ files.filter((file) => {
 });
 
 // Run the benchmark suite.
+console.log(...benchmarks)
 b.suite(
   'calipers',
   ...benchmarks,

@@ -10,6 +10,7 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "lint:file": "eslint"
   },
   "repository": {

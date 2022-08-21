@@ -2,8 +2,8 @@
 
 var fs      = require('fs');
 var path    = require('path');
-var Promise = require('bluebird');
-var popen   = Promise.promisify(fs.open);
+var util = require('util');
+var popen   = util.promisify(fs.open);
 var detect  = require('../lib/detect');
 
 describe('detect', function () {

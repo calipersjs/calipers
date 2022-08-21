@@ -34,7 +34,7 @@ describe('index', function () {
     });
   });
 
-  it('works with promises', function () {
+  it('works with promises', () => {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(txtPath)
     .then(function (result) {

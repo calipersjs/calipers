@@ -45,6 +45,8 @@ To install Poppler on Ubuntu:
 ```
 apt-get install pkg-config
 apt-get install libpoppler-cpp-dev
+apt-get install libpoppler-private-dev
+apt-get install g++
 ```
 
 # Usage

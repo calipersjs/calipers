@@ -6,18 +6,18 @@ var util = require('util');
 var popen   = util.promisify(fs.open);
 var detect  = require('../lib/detect');
 
-describe('detect', function () {
+describe('detect', () => {
 
   var txtPath = path.resolve(__dirname, 'fixtures/file.txt');
 
   var fakeTruePlugin = {
-    detect: function (buffer) {
+    detect: (buffer) => {
       return buffer.toString('ascii', 0, 12) === 'A text file.';
     }
   };
 
   var fakeFalsePlugin = {
-    detect: function () {
+    detect: () => {
       return false;
     }
   };

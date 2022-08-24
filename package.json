@@ -1,6 +1,6 @@
 {
   "name": "calipers",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "The fastest Node.js library for measuring image and PDF dimensions.",
   "main": "lib/index.js",
   "scripts": {

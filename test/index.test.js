@@ -2,7 +2,7 @@
 
 var path     = require('path');
 
-describe('index', function () {
+describe('index', () => {
 
   var txtPath = path.resolve(__dirname, 'fixtures/file.txt');
   var pngPath = path.resolve(__dirname, 'fixtures/123x456.png');
@@ -12,21 +12,21 @@ describe('index', function () {
   };
 
   var fakeTruePlugin = {
-    detect: function (buffer) {
+    detect: (buffer) => {
       return buffer.toString('ascii', 0, 12) === 'A text file.';
     },
-    measure: function () {
+    measure: () => {
       return output;
     }
   };
 
   var fakeFalsePlugin = {
-    detect: function () {
+    detect: () => {
       return false;
     }
   };
 
-  it('works with callbacks', function (done) {
+  it('works with callbacks', (done) => {
     var calipers = require('../lib/index')(fakeFalsePlugin, 'png', fakeTruePlugin);
     calipers.measure(txtPath, function (err, result) {
       expect(result).toBe(output);
@@ -34,7 +34,16 @@ describe('index', function () {
     });
   });
 
-  it('works with promises', function () {
+  it('errors out correctly with callbacks', (done) => {
+    var calipers = require('../lib/index')(fakeFalsePlugin, 'png', fakeFalsePlugin);
+    calipers.measure(txtPath, function (err, result) {
+    }).catch((err) => {
+      expect(err.message).toMatch('File type not supported');
+      done()
+    });
+  });
+
+  it('works with promises', () => {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(txtPath)
     .then(function (result) {
@@ -42,7 +51,17 @@ describe('index', function () {
     });
   });
 
-  it('works with required plugins', function () {
+  it('errors with promises', async () => {
+    var calipers = require('../lib/index')(fakeFalsePlugin, fakeFalsePlugin, 'png');
+    try {
+      await calipers.measure(txtPath);
+    } catch(err) {
+      expect(err.message).toMatch('File type not supported');
+    }
+
+  });
+
+  it('works with required plugins', () => {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(pngPath)
     .then(function (result) {

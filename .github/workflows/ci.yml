@@ -27,7 +27,6 @@ jobs:
           sudo apt-get -y install \
             libpoppler-cpp-dev \
             libpoppler-private-dev \
-            g++
       # Setup this version of Node
       # Cache is saved and restored by actions/setup-node
       - name: Use Node ${{ matrix.node-version }}

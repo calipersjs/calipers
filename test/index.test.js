@@ -34,12 +34,31 @@ describe('index', () => {
     });
   });
 
+  it('errors out correctly with callbacks', (done) => {
+    var calipers = require('../lib/index')(fakeFalsePlugin, 'png', fakeFalsePlugin);
+    calipers.measure(txtPath, function (err, result) {
+    }).catch((err) => {
+      expect(err.message).toMatch('File type not supported');
+      done()
+    });
+  });
+
   it('works with promises', () => {
     var calipers = require('../lib/index')(fakeFalsePlugin, fakeTruePlugin, 'png');
     return calipers.measure(txtPath)
     .then(function (result) {
       expect(result).toBe(output);
     });
+  });
+
+  it('errors with promises', async () => {
+    var calipers = require('../lib/index')(fakeFalsePlugin, fakeFalsePlugin, 'png');
+    try {
+      await calipers.measure(txtPath);
+    } catch(err) {
+      expect(err.message).toMatch('File type not supported');
+    }
+
   });
 
   it('works with required plugins', () => {
